@@ -117,6 +117,14 @@ def passkey_login():
     except Exception:
         return jsonify({"error": "Invalid signature"}), 403
 
+@app.route('/get_username', methods=['GET'])
+def get_username():
+    """Return the username of the currently logged-in user."""
+    username = session.get('username')
+    if username:
+        return jsonify({"username": username}), 200
+    else:
+        return jsonify({"error": "No user logged in"}), 401
 
 @app.route('/logout', methods=['POST'])
 def logout():
