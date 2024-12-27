@@ -13,7 +13,7 @@ class MongoInterface:
 
     def connect_to_mongodb(self):
         # Get the configuration parameters from the configuration file
-        config_path = os.path.join(os.path.dirname(__file__), 'conf', 'config.json')
+        config_path = os.path.join(os.path.dirname(__file__),"..", 'conf', 'config.json')
         with open(config_path, 'r') as f:
             config = json.load(f)
 
